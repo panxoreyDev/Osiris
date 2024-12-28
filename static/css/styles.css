@@ -1,0 +1,582 @@
+body{
+    background-color: #f5f5f5;
+    font-family: "proxima-nova", "proxima nova", "helvetica neue", "helvetica", "arial", sans-serif
+}
+
+.sidebar {
+    font-size: .8rem; /* Tamaño ajustado */
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 180px;
+    background-color: #031b4d;
+    flex-direction: column;
+    display: flex;
+    box-shadow: 5px 0px 5px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+.sidebar .nav-link {
+    color: rgb(255, 255, 255);  /* Color con transparencia */
+}
+
+.sidebar .nav-link:hover {
+    color:#031b4d;  /* Color con transparencia */
+    background-color: #ffffff;
+    border-radius: 5px;
+
+}
+
+.sidebar .company-name {
+    color: #44abb6;  /* Color con transparencia */
+}
+
+/* Contenedor del logo (eliminado)*/
+.logo-container {
+    text-align: center; /* Centra la imagen horizontalmente */
+    background-color: #ffffff; /* Fondo blanco */
+    padding: 10px; /* Espaciado interno para que la imagen no toque los bordes */
+    border-radius: 5px; /* Opcional: bordes redondeados para un efecto estético */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Opcional: sombra para destacar la imagen */
+}
+
+/* Imagen del logo (eliminado)*/
+.company-logo {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.sidebar .submenu-toggle {
+    display: flex;
+    justify-content: space-between; /* Coloca los elementos (texto y flecha) en extremos opuestos */
+    align-items: center; /* Alinea verticalmente los íconos y texto */
+}
+
+.sidebar .submenu .nav-link {
+    font-size: 0.8rem; /* Tamaño ajustado */
+    color: #f3f3f3; /* Un gris más claro para el texto */
+}
+
+/* Opcional: Cambiar el color al pasar el mouse */
+.sidebar .submenu .nav-link:hover {
+    color: #031b4d; /* Un gris más oscuro para mejor contraste al hacer hover */
+}
+
+
+
+/* Contenedor del tooltip */
+.tooltip-container {
+    position: relative; /* Contenedor relativo para manejar hover */
+    display: inline-block;
+}
+
+/* Estilo del tooltip */
+.tooltip {
+    visibility: hidden; /* Ocultamos inicialmente */
+    opacity: 0; /* Invisible al inicio */
+    transition: opacity 0.3s ease .3s, visibility 0s linear 0s; /* Delay solo al aparecer */
+    position: fixed; /* Fijo para estar fuera de restricciones del sidebar */
+    background-color: rgba(98, 98, 98, 0.8); /* Fondo negro con opacidad */
+    color: #fff; /* Texto blanco */
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 1px;
+    white-space: nowrap; /* Evita saltos de línea */
+    z-index: 9999; /* Asegura que esté encima de todo */
+    /* Ajustes iniciales */
+    transform: translate(100px, -0px); /* Desplaza un poco a la derecha y abajo */
+}
+
+/* Flecha del tooltip */
+.tooltip::after {
+    content: '';
+    position: absolute;
+    top: -6px; /* Flecha arriba del tooltip */
+    left: 10px; /* Ajuste para alinear con el contenido */
+    transform: translateX(0);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.8) transparent; /* Flecha negra apuntando hacia abajo */
+}
+
+/* Mostrar el tooltip con hover y delay */
+.tooltip-container:hover .tooltip {
+    visibility: visible; /* Mostrar el tooltip */
+    opacity: 1; /* Totalmente visible */
+    transition: opacity 0.3s ease, visibility 0s linear 0s; /* Sin delay al desaparecer */
+}
+
+
+
+
+
+/* Estilo principal del contenedor */
+#inicio {
+    position: relative;            /* Relativo para posicionar contenido y fondo */
+    display: flex;                 /* Flexbox para organizar contenido */
+    align-items: center;           /* Centrar verticalmente contenido */
+    justify-content: center;       /* Centrar horizontalmente contenido */
+    height: 900px;                 /* Altura completa */
+    width: 100%;                   /* Ancho completo */
+    border: 2px solid #00ddff23;   /* Bordes con color */
+    border-radius: 5px;            /* Bordes redondeados */
+    overflow: hidden;              /* Asegura que nada sobresalga */
+    padding: 20px;                 /* Espaciado interno adicional */
+}
+
+/* Definimos la animación */
+@keyframes moveBackground {
+    0% {
+        background-position: center top; /* Inicia desde la parte superior */
+    }
+    50% {
+        background-position: center center; /* Mueve hacia el centro */
+    }
+    100% {
+        background-position: center bottom; /* Termina en la parte inferior */
+    }
+}
+
+/* Capa del fondo desenfocado */
+.background {
+    position: absolute;            /* Ocupa todo el contenedor */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.5), 
+        rgba(255, 255, 255, 0.0)
+    ), url('/static/images/inicio_andromeda.png'); /* Imagen con gradiente */
+    background-size: cover;        /* Cubre todo el contenedor */
+    background-position: center top; /* Posición inicial */
+    filter: blur(10px);            /* Desenfoque del fondo */
+    z-index: 0;                    /* Detrás del contenido */
+
+    /* Animación */
+    animation: moveBackground 10s infinite alternate; /* 10 segundos, ida y vuelta */
+}
+
+
+
+
+.titulo {
+    margin-left: 180px;
+    padding: 20px;
+}
+
+.container mt-5 mb-4{
+    font-size: 40px;
+}
+
+
+h3{
+    color: rgb(151, 149, 81);
+}
+
+.btn-custom {
+    color: white;
+    background-color: #0169ff; /* Color personalizado */
+    border-color: #00ddff23; /* Bordes del mismo color */
+}
+
+.btn-custom:hover {
+    color: black;
+    background-color: #ffffff; /* Color al pasar el cursor */
+    border-color: #00444f;
+}
+
+.btn-custom:active {
+    color: white;
+    background-color: #0169ff; /* Color al hacer clic */
+    border-color: #00444f;
+}
+
+.btn-custom:focus {
+    color:white;
+    background-color: #0169ff; /* Color al hacer clic */
+    border-color: #00444f;
+}
+
+
+        /* Estilos para el contenedor del spinner */
+#loadingSpinner {
+    display: flex; /* Oculto por defecto */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    font-size: 18px;
+    color: #959595;
+}
+
+#TableContainer{
+    display: flex; /* Hace que el contenedor sea flexible */
+    justify-content: left; /* Centra el canvas horizontalmente */
+    align-items: center; /* Centra el canvas verticalmente */
+    width: 100%; /* Ocupa un tercio del ancho del contenedor */
+    height: auto; /* Mantiene la proporción del gráfico */
+    background-color: #ffffff;
+    border-radius: 20px; /* Añadir esquinas redondeadas */
+}
+
+
+
+.spinner {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #00444f;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.d-flex .gap-3{
+    padding: 20px, 8px;
+}
+
+.titulo_tab1{
+    text-align: center;
+    color: #636363;
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 2px solid #d3d3d3; /* Borde sólido gris claro */
+
+}
+
+
+.ventasTitle{
+    text-align: left;
+    color: #323232;
+    border-radius: 10px;
+    font-size: 35px;
+    padding-top: 20px; /* Reduce el espaciado interno */
+}
+
+#ventasdiarias-container {
+    display: flex; /* Hace que el contenedor sea flexible */
+    justify-content: left; /* Centra el canvas horizontalmente */
+    align-items: center; /* Centra el canvas verticalmente */
+    width: 100%; /* Ocupa un tercio del ancho del contenedor */
+    height: auto; /* Mantiene la proporción del gráfico */
+    background-color: #ffffff;
+    border-radius: 20px; /* Añadir esquinas redondeadas */
+}
+
+#ventasChartfiltered {
+    display: flex; /* Hace que el contenedor sea flexible */
+    justify-content: left; /* Centra el canvas horizontalmente */
+    align-items: center; /* Centra el canvas verticalmente */
+    width: 100%; /* Ocupa un tercio del ancho del contenedor */
+    height: auto; /* Mantiene la proporción del gráfico */
+    background-color: #ffffffd2;
+    border-radius: 20px; /* Añadir esquinas redondeadas */
+
+
+}
+
+
+
+/* Submenú oculto inicialmente */
+.submenu{
+    max-height: 0; /* Altura inicial en 0 */
+    overflow: hidden; /* Ocultar contenido que excede la altura */
+    padding-left: 15px; /* Añadir padding para indentación */
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out; /* Transición suave para la altura y opacidad */
+    opacity: 0; /* Ocultar el submenú con opacidad */
+    margin: 0; /* Asegurarse de que no tenga margen extra */
+}
+
+/* Espaciado uniforme para todos los elementos */
+.nav-link {
+    margin: 5px 0; /* Añadir un margen uniforme a todos los elementos de la navegación */
+}
+
+/* Submenú visible cuando está activo */
+.submenu.active {
+    max-height: 300px; /* Ajustar a la altura necesaria para mostrar todos los elementos */
+    opacity: 1; /* Hacer visible el submenú */
+}
+        
+
+        /* El texto se empuja hacia abajo usando "margin-top: auto" */
+        .bottom-text {
+            color: #cccccc;
+            font-size: 10px;
+            margin-top: auto; /* Empuja este elemento hacia el fondo del sidebar */
+            text-align: right; /* Alinear el texto a la derecha */
+            padding-right: 10px;
+            padding-bottom: 5px;
+        }
+
+        .bottom-text a {
+            color: #cccccc; /* Color del enlace en el footer */
+            text-decoration: none; /* Eliminar el subrayado del enlace */
+        }
+
+        .bottom-text a:hover {
+            color: #00aaff; /* Cambiar color del enlace al pasar el ratón */
+            text-decoration: underline; /* Añadir subrayado al pasar el ratón */
+        }
+
+
+
+/*DATA TABLES----------------------------------------*/
+
+#DispersionContainer{
+    background-color: #ffffff; /* Fondo verde */
+    border-radius: 10px;
+}
+
+h2.mb-4{
+    text-align: left;
+    color: #636363;
+    background-color: #ffffff;
+    border-radius: 10px;
+    font-size: 50px;
+    padding-top: 20px; /* Reduce el espaciado interno */
+}
+
+
+/* Cambiar el color de fondo y texto de los títulos */
+table.dataTable {
+    background-color: #ffffff; /* Fondo verde */
+    padding-top: 5px; /* Reduce el espaciado interno */
+    border-radius: 20px; /* Añadir esquinas redondeadas */
+
+}
+table.dataTable thead th {
+    padding: 5px; /* Reduce el espaciado interno */
+    font-size: 12px; /* Tamaño de texto más pequeño */
+    background-color: #43737a; /* Fondo verde */
+    color: white;             /* Texto blanco */
+    font-weight: bold;        /* Texto en negrita */
+    text-align: center;       /* Centrar los títulos */
+    }
+
+/* Cambiar el color al pasar el mouse por los encabezados */
+table.dataTable thead th:hover {
+    background-color: #ffa061; /* Fondo más oscuro al pasar el ratón */
+    font-size: 12px; /* Tamaño de texto más pequeño */
+
+    }
+
+table.dataTable tbody td {
+    padding: 5px; /* Reduce el espaciado interno */
+    font-size: 12px; /* Tamaño de texto más pequeño */
+}
+
+/*FORMS----------------------------------------*/
+
+
+#master-form .container {
+    background-color: #ececec; /* Blanco hueso */
+    border-radius: 8px; /* Bordes redondeados para estética */
+    padding: 20px; /* Espaciado interno */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+
+h3.mb-4{
+    text-align: left;
+    color: #636363;
+    border-radius: 10px;
+    font-size: 35px;
+    padding-top: 20px; /* Reduce el espaciado interno */
+}
+
+
+
+
+
+
+
+
+
+/* Contenedor de la navegación */
+.container-navTable {
+    position: absolute; /* Fija la posición respecto al contenedor padre */
+    top: 0; /* Alinea el contenedor en la parte superior */
+    left: 0; /* Alinea el contenedor a la izquierda */
+    z-index: 1; /* Se asegura de que esté sobre otros elementos */
+    width: 100%; /* Ocupar todo el ancho */
+    text-align: left; /* Evita centrado del contenido */
+    margin: 0; /* Elimina cualquier margen adicional */
+    padding: 10px; /* Agrega algo de espacio si es necesario */
+}
+
+/* Ajustes adicionales si es necesario */
+.custom-navbar {
+    border-bottom: 2px solid #ddd; /* Línea debajo de la barra de navegación */
+    background-color: #f8f9fa; /* Fondo claro */
+}
+
+.custom-nav-tabs .custom-tab-item {
+    color: #007bff; /* Color de texto */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: inline-block;
+    border-bottom: 2px solid transparent; /* Subrayado transparente */
+}
+
+.custom-tab-item.active {
+    border-bottom: 2px solid #007bff; /* Subrayado azul para el activo */
+    color: #0056b3; /* Texto más oscuro */
+}
+
+
+
+
+
+
+
+
+/* --------------------------------------------------------Contenedor de insights */
+/* Contenedor de insights */
+.insights {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.insight-item {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    margin: 10px;
+}
+
+.insight-item h4 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+.big-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+    margin: 0;
+}
+
+/* Clase para el contenido de las pestañas */
+.tab-content-item {
+    display: none;
+}
+
+.tab-content-item.active {
+    display: block;
+}
+
+
+
+
+/*----------------login style */
+
+
+.dynamic-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #282828; /* Fondo negro */
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Configuración base para estrellas */
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle ease-in-out infinite, move ease-in-out infinite;
+}
+
+/* Movimiento aleatorio */
+@keyframes move {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(calc(var(--dx) * 1px), calc(var(--dy) * 1px));
+    }
+}
+
+/* Parpadeo */
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+
+
+
+.login-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 20px 80px #44abb6;
+    background-color: #ffffff;
+    padding: 20px;
+}
+
+.login-logo {
+    display: block;
+    margin: 0 auto 25px;
+    width: 250px;
+}
+
+.login-btn-primary {
+    background-color: #282828;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    color: white;
+}
+
+.login-btn-primary:hover {
+    background-color: #44abb6; 
+}
+
+.login-form-check-label {
+    margin-right: 20px;
+}
+
+.login-terms {
+    font-size: 0.85rem;
+    color: #666;
+    text-align: center;
+}
+
+.login-terms a {
+    color: #44abb6;
+    text-decoration: none;
+}
+
+.login-terms a:hover {
+    text-decoration: underline;
+}
+
+.password-recovery{
+    color: #44abb6;
+}

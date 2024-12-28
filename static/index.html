@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nebel API</title>
+
+
+</head>
+<body>
+<!-----------------------BARRA DE MENUS--------------------------------------------------------------------------->
+
+<!-- Barra lateral -->
+<div class="sidebar">
+    <h4 class="p-3 company-name">Osiris Retail Metrics</h4>
+    <nav class="nav flex-column">
+        <a class="nav-link" href="#tab1">
+            <i class="fas fa-chart-line"></i> Resumen
+        </a>
+
+        <a class="nav-link submenu-toggle d-flex justify-content-between align-items-center" href="#tab2">
+            <span><i class="fas fa-briefcase"></i> Comercial</span>
+            <i class="fas fa-chevron-down"></i>
+        </a>
+        <!-- Submenú -->
+        <ul class="submenu list-unstyled">
+            <li><a class="nav-link" href="#tab2-sub1"><i class="fas fa-chart-bar"></i>KAM KPI'S</a></li>
+            <li><a class="nav-link" href="#tab2-sub2"><i class="fas fa-store"></i> Seg. Sell Out</a></li>
+            <li><a class="nav-link" href="#tab2-sub3"><i class="fas fa-box"></i> Seg. Sell In</a></li>
+            <li><a class="nav-link" href="#tab2-sub4"><i class="fas fa-tools"></i> Ceres Tool ©</a></li>
+        </ul>
+
+        <a class="nav-link submenu-toggle d-flex justify-content-between align-items-center" href="#tab3">
+            <span><i class="fas fa-sync-alt"></i> Resurtido</span>
+            <i class="fas fa-chevron-down"></i>
+        </a>
+        <!-- Submenú -->
+        <ul class="submenu list-unstyled">
+            <li><a class="nav-link" href="#tab3-sub1"><i class="fas fa-chart-pie"></i>CPFR KPI'S</a></li>
+            <li><a class="nav-link" href="#tab3-sub2"><i class="fas fa-truck-loading"></i> Dispersión Inv</a></li>
+            <li class="tooltip-container">
+                <a class="nav-link" href="#tab3-sub3"><i class="fas fa-tools"></i> Osiris Tool ©</a>
+                <!-- Tooltip -->
+                <div class="tooltip">Herramienta para optimizar el resurtido y análisis de inventarios.</div>
+            </li>
+            <li><a class="nav-link" href="#tab3-sub4"><i class="fas fa-chart-line"></i> Pronósticos</a></li>
+            <li><a class="nav-link" href="#tab3-sub5"><i class="fas fa-shipping-fast"></i> Seg. Pedidos</a></li>
+        </ul>
+
+        <a class="nav-link" href="#tab4">
+            <i class="fas fa-book"></i> Catálogos
+        </a>
+        <a class="nav-link" href="#tab5">
+            <i class="fas fa-user-check"></i> Promotoría
+        </a>
+        <a class="nav-link" href="#tab6">
+            <i class="fas fa-sitemap"></i> Organigrama
+        </a>
+        <!-- Tab Opciones con Submenú -->
+        <a class="nav-link submenu-toggle d-flex justify-content-between align-items-center" href="#tab7">
+            <span><i class="fas fa-cogs"></i> Opciones</span>
+            <i class="fas fa-chevron-down"></i>
+        </a>
+        <!-- Submenú -->
+        <ul class="submenu list-unstyled">
+            <li><a class="nav-link" href="#tab7-sub1"><i class="fas fa-wrench"></i> Sub Opción 1</a></li>
+            <li><a class="nav-link" href="#tab7-sub2"><i class="fas fa-cog"></i> Sub Opción 2</a></li>
+            <li><a class="nav-link" href="#tab7-sub3"><i class="fas fa-sliders-h"></i> Sub Opción 3</a></li>
+        </ul>
+        <a class="nav-link" href="#tab8">
+            <i class="fas fa-sign-out-alt"></i> Salir
+        </a>
+    </nav>
+    <div class="bottom-text">
+        <a href="www.nebelsoftware.com">© 2024 nebelsoftware.com</a>
+    </div>
+</div>
+
+
+
+<!-----------------------ESTE ES EL CONTENIDO FUNCIONAL A LA VERGA PARA PINCHES FRONTENDERS METICHES--------------------------------------------------------------------------->
+
+
+    <!-- Titulo de compañia -->
+    <div class="titulo">
+        <div class="titulo_tab1" >
+            <h2>Proveedor Nacional.</h2>
+        </div>
+
+           <!-- la bolita miada que carga los datos para que no te desesperes -->
+    <div id="loadingSpinner" style="display:none;">
+        <p class="loading-text">Cargando datos...</p>
+        <div class="spinner"></div>
+    </div>
+
+
+<!-----------------------info del primer tab------------------------------------------------------------------------------------>
+
+<div class="content">
+    <div id="inicio" class="tab-content">
+        <div class="background"></div> <!-- Capa de fondo desenfocado -->
+        <div class="container-navTable">
+            <!-- Navegación personalizada -->
+            <div class="custom-navbar">
+                <div class="custom-nav-tabs d-flex">
+                    <a href="#inventarios" class="custom-tab-item active" onclick="showTab(event, 'inventarios')">Inventarios</a>
+                    <a href="#ventas" class="custom-tab-item" onclick="showTab(event, 'ventas')">Ventas</a>
+                    <a href="#proveedores" class="custom-tab-item" onclick="showTab(event, 'proveedores')">Proveedores</a>
+                </div>
+            </div>
+
+            <!-- Contenido de las pestañas -->
+            <!-- Inventarios -->
+            <div id="inventarios" class="tab-content-item active">
+                <h3>Inventarios</h3>
+                <p>Gestión y visualización de existencias actuales.</p>
+
+                <!-- Indicadores destacados -->
+                <div class="insights">
+                    <div class="insight-item">
+                        <h4>% de Faltantes entre 0-3 días</h4>
+                        <p class="big-number">15%</p>
+                    </div>
+                    <div class="insight-item">
+                        <h4>Días Totales de Inventario</h4>
+                        <p class="big-number">30 días</p>
+                    </div>
+                    <div class="insight-item">
+                        <h4>Unidades en Stock Crítico</h4>
+                        <p class="big-number">25 productos</p>
+                    </div>
+                    <div class="insight-item">
+                        <h4>Rotación de Inventarios</h4>
+                        <p class="big-number">4.5</p>
+                    </div>
+                    <div class="insight-item">
+                        <h4>Valor Total del Inventario</h4>
+                        <p class="big-number">$250,000 MXN</p>
+                    </div>
+                </div>
+
+                <!-- Gráfico -->
+                <div id="inventario-chart" style="width: 100%; height: 300px;"></div>
+            </div>
+
+            <!-- Ventas -->
+            <div id="ventas" class="tab-content-item" style="display:none;">
+                <h3>Ventas</h3>
+                <p>Reportes e indicadores de ventas.</p>
+
+                <!-- Indicadores destacados -->
+                <div class="insights">
+                    <div class="insight-item">
+                        <h4>Ventas del Mes</h4>
+                        <p class="big-number">$120,000</p>
+                    </div>
+                    <div class="insight-item">
+                        <h4>% de Crecimiento Interanual</h4>
+                        <p class="big-number">+12%</p>
+                    </div>
+                    <div class="insight-item">
+                        <h4>Ticket Promedio</h4>
+                        <p class="big-number">$550</p>
+                    </div>
+                    <div class="insight-item">
+                        <h4>Total de Transacciones</h4>
+                        <p class="big-number">2,345</p>
+                    </div>
+                    <div class="insight-item">
+                        <h4>% de Devoluciones</h4>
+                        <p class="big-number">2%</p>
+                    </div>
+                </div>
+
+                <!-- Gráfico -->
+                <div id="ventas-chart" style="width: 100%; height: 300px;"></div>
+            </div>
+
+            <!-- Proveedores -->
+            <div id="proveedores" class="tab-content-item" style="display:none;">
+                <h3>Proveedores</h3>
+                <p>Administración de proveedores registrados.</p>
+
+                <!-- Indicadores destacados -->
+                <div class="insights">
+                    <div class="insight-item">
+                        <h4>% de Entregas Puntuales</h4>
+                        <p class="big-number">85%</p>
+                    </div>
+                    <div class="insight-item">
+                        <h4>Tiempo Promedio de Entrega</h4>
+                        <p class="big-number">3 días</p>
+                    </div>
+                    <div class="insight-item">
+                        <h4>Órdenes Completadas</h4>
+                        <p class="big-number">120 órdenes</p>
+                    </div>
+                    <div class="insight-item">
+                        <h4>% de Incumplimientos</h4>
+                        <p class="big-number">10%</p>
+                    </div>
+                    <div class="insight-item">
+                        <h4>Valor de Compras a Proveedores</h4>
+                        <p class="big-number">$500,000 MXN</p>
+                    </div>
+                </div>
+
+                <!-- Gráfico -->
+                <div id="proveedores-chart" style="width: 100%; height: 300px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-----------------------info del 2do tab y submenu-------------------------------------------------------------------------------->
+        <div id="tab2-sub2" class="tab-content" style="display: flex;"></div>
+
+<!-----------------------contenedor de botones de filtros-------------------------------------------------------------------------------->
+    <div id="filtros-botones" style="display: none;">
+        <div class="tituloVentas">
+            <h3 class="ventasTitle">Venta Diaria AA</h3>
+        </div>
+            <div class="d-flex gap-3 mb-4">
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle btn-custom" type="button" id="dropdownMenuButtonYear" data-bs-toggle="dropdown" aria-expanded="true">
+                         Año
+                    </button>
+                    <ul class="dropdown-menu drop-custom" aria-labelledby="dropdownMenuButtonYear">
+                        <li><a class="dropdown-item" href="#" data-year="">Todos</a></li>
+                        <li><a class="dropdown-item" href="#" data-year="2023">2023</a></li>
+                        <li><a class="dropdown-item" href="#" data-year="2024">2024</a></li>
+                    </ul>
+                </div>
+            
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle btn-custom" type="button" id="dropdownMenuButtonMonth" data-bs-toggle="dropdown" aria-expanded="true">
+                         Mes
+                    </button>
+                    <ul class="dropdown-menu drop-custom" aria-labelledby="dropdownMenuButtonMonth">
+                        <li><a class="dropdown-item" href="#" data-month="">Todos</a></li>
+                        <li><a class="dropdown-item" href="#" data-month="1">Enero</a></li>
+                        <li><a class="dropdown-item" href="#" data-month="2">Febrero</a></li>
+                        <li><a class="dropdown-item" href="#" data-month="3">Marzo</a></li>
+                        <li><a class="dropdown-item" href="#" data-month="4">Abril</a></li>
+                        <li><a class="dropdown-item" href="#" data-month="5">Mayo</a></li>
+                        <li><a class="dropdown-item" href="#" data-month="6">Junio</a></li>
+                        <li><a class="dropdown-item" href="#" data-month="7">Julio</a></li>
+                        <li><a class="dropdown-item" href="#" data-month="8">Agosto</a></li>
+                        <li><a class="dropdown-item" href="#" data-month="9">Septiembre</a></li>
+                        <li><a class="dropdown-item" href="#" data-month="10">Octubre</a></li>
+                        <li><a class="dropdown-item" href="#" data-month="11">Noviembre</a></li>
+                        <li><a class="dropdown-item" href="#" data-month="12">Diciembre</a></li>
+                    </ul>
+                </div>
+        
+                <!-- Botón para buscar -->
+                <button id="buscarBtn" class="btn btn-primary btn-custom">Filtrar</button>            
+            </div>
+
+               <!-- Contenedor para el primer canvas (ventasdiarias) -->
+               <div id="ventasdiarias-container" style="display: none;">
+                <canvas id="ventasdiarias"></canvas>
+                </div>
+
+            <!-- Segundo canvas (ventasChartfiltered), inicialmente oculto -->
+                    <div id="ventasChartfiltered" style="display: none;"></div>
+    </div>
+
+<!-----------------------info del 3er tab (subtabs)------------------------------------------------------------------------------->
+
+
+    <!-- Contenido Resumen subtab1-->
+    <div id="TableContainer" style="display:none;">     
+        <div class="container mt-5" id="#tab3-sub1">
+            <div class="dispKpiContainer">
+            <h2 class="mb-4">Key Performance Indicators - CPFR</h2>
+            </div>
+        </div>
+    </div>            
+
+
+
+<!-- Contenedor para la tabla de Dispersión -->
+<div id="DispersionContainer" style="display:none;">     
+    <div class="container mt-5" id="tab3-sub2">
+        <div class="DispersionClass">
+            <h2 class="mb-4">Dispersión de Inventarios</h2>
+        </div>
+        <table id="dispersionTable" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Código de Barras</th>
+                    <th>Código de Tienda</th>
+                    <th>Ventas 5 Semanas</th>
+                    <th>Venta Diaria</th>
+                    <th>Inventario Reciente</th>
+                    <th>Días Inventario</th>
+                    <th>Última Fecha Inventario</th>
+                    <th>Última Fecha Venta</th>
+                    <th>Rango Días Inventario</th>
+                    <th>Tipo de Rotación</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+    
+<!-----------------------info del 4to tab------------------------------------------------------------------------------------>
+
+<div id="master-form" class="tab-content" style="display:none;">
+    <div class="container mt-5">
+        <h3 class="mb-4">Master Catálogo</h3>
+        <form action="post" method="POST">
+            <div class="row">
+                <!-- Código de Barras -->
+                <div class="col-md-4 mb-3">
+                    <label for="codigoBarras" class="form-label">Código de Barras</label>
+                    <input type="text" class="form-control" id="codigoBarras" name="codigoBarras" placeholder="Ingrese el código de barras">
+                </div>
+                <!-- Descripción -->
+                <div class="col-md-4 mb-3">
+                    <label for="descripcion" class="form-label">Descripción</label>
+                    <input type="text" class="form-control" id="descripcion" name="descripcion" placeholder="Ingrese la descripción">
+                </div>
+                <!-- Categoría -->
+                <div class="col-md-4 mb-3">
+                    <label for="categoria" class="form-label">Categoría</label>
+                    <input type="text" class="form-control" id="categoria" name="categoria" placeholder="Ingrese la categoría">
+                </div>
+            </div>
+            <div class="row">
+                <!-- Subcategoría -->
+                <div class="col-md-4 mb-3">
+                    <label for="subcategoria" class="form-label">Subcategoría</label>
+                    <input type="text" class="form-control" id="subcategoria" name="subcategoria" placeholder="Ingrese la subcategoría">
+                </div>
+                <!-- Segmento -->
+                <div class="col-md-4 mb-3">
+                    <label for="segmento" class="form-label">Segmento</label>
+                    <input type="text" class="form-control" id="segmento" name="segmento" placeholder="Ingrese el segmento">
+                </div>
+                <!-- Marca -->
+                <div class="col-md-4 mb-3">
+                    <label for="marca" class="form-label">Marca</label>
+                    <input type="text" class="form-control" id="marca" name="marca" placeholder="Ingrese la marca">
+                </div>
+            </div>
+            <div class="row">
+                <!-- Precio -->
+                <div class="col-md-4 mb-3">
+                    <label for="precio" class="form-label">Precio</label>
+                    <input type="number" step="0.01" class="form-control" id="precio" name="precio" placeholder="Ingrese el precio">
+                </div>
+                <!-- FE -->
+                <div class="col-md-4 mb-3">
+                    <label for="fe" class="form-label">Factor Empaque</label>
+                    <input type="text" class="form-control" id="fe" name="fe" placeholder="Ingrese FE">
+                </div>
+                <!-- UPC Referencia -->
+                <div class="col-md-4 mb-3">
+                    <label for="upcReferencia" class="form-label">UPC Referencia</label>
+                    <input type="text" class="form-control" id="upcReferencia" name="upcReferencia" placeholder="Ingrese el UPC de referencia">
+                </div>
+            </div>
+            <div class="row">
+                <!-- Material Cliente -->
+                <div class="col-md-4 mb-3">
+                    <label for="materialCliente" class="form-label">Material Cliente</label>
+                    <input type="text" class="form-control" id="materialCliente" name="materialCliente" placeholder="Ingrese el material del cliente">
+                </div>
+                <!-- Material Interno -->
+                <div class="col-md-4 mb-3">
+                    <label for="materialInterno" class="form-label">Material Interno</label>
+                    <input type="text" class="form-control" id="materialInterno" name="materialInterno" placeholder="Ingrese el material interno">
+                </div>
+            </div>
+            <!-- Botones -->
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <button type="reset" class="btn btn-secondary">Limpiar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<!-----------------------info del 5to tab------------------------------------------------------------------------------------>
+
+        <div id="tab5" class="tab-content" style="display:none;">
+            <h3>Herramienta cálculo de redenciones (Ceres)</h3>
+            <canvas id="lineChart"></canvas>
+        </div>
+
+
+
+
+    
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Modal -->
+<div class="modal fade" id="genericModal" tabindex="-1" aria-labelledby="genericModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="genericModalLabel">Información no disponible.</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Favor de revisar si el módulo se encuentra en su paquete de subscripción o contactar al administador. isaias.rodriguez@nebelsoftware.com
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Cargar Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<!-- DataTables CSS -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/jquery.dataTables.min.css">
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+<!-- CSS para DataTables Buttons -->
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
+<!-- JS para DataTables y Extensiones -->
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.flash.min.js"></script>
+
+<!-- Biblioteca PDFMake (para exportación PDF) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+
+<!-- Biblioteca JSZip (para exportación Excel) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+<!-- forn awesome para iconos) -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+<script src="/static/js/script.js" defer></script>
+<link rel="stylesheet" href="/static/css/styles.css">
